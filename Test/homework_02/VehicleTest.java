@@ -1,13 +1,19 @@
 package homework_02;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class VehicleTest {
+    Car car;
+    Motorcycle motorcycle;
 
-    Car car = new Car("Aurus", "Aurus Senat", 2024);
-    Motorcycle motorcycle = new Motorcycle("Aurus", "Aurus Merlon", 2024);
+    @BeforeEach
+    void setUp() {
+        car = new Car("Aurus", "Aurus Senat", 2024);
+        motorcycle = new Motorcycle("Aurus", "Aurus Merlon", 2024);
+    }
 
 
     //- Проверить, что экземпляр объекта Car также является экземпляром транспортного средства
@@ -17,11 +23,13 @@ public class VehicleTest {
         assertTrue(car instanceof Vehicle);
     }
 
+
     // Проверить, что объект Car создается с 4-мя колесами.
     @Test
     void aCarObjectIsCreatedWithFourWheels(){
         assertEquals(car.getNumWheels(), 4);
     }
+
 
     // Проверить, что объект Motorcycle создается с 2-мя колесами.
     @Test
